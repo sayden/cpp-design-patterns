@@ -19,12 +19,9 @@
 #include "structural/composite/Ellipse.h"
 #include "structural/composite/CompositeGraphic.h"
 #include "structural/decorator/ClassDecoratorExample.h"
+#include "structural/facade/HouseFacade.cpp"
 
 Singleton::StringSingleton *singleton = 0;
-
-class CircleShape;
-
-class DrawingAPI1;
 
 void singletonTest(){
     std::cout << "Current var is " << Singleton::StringSingleton::instance()->GetString()
@@ -136,6 +133,13 @@ void DesignPatterns::execute(int pattern) {
             ClassDecoratorExample b;
             b.execute();
             break;
+        case DESIGN_PATTERN_FACADE:{
+            HouseFacade hf;
+            hf.goToWork();
+            hf.comeHome();
+            break;
+        }
+
         default: std::cout << "Pattern not recognized" << std::endl;
     }
 }
@@ -150,6 +154,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_BRIDGE: return "BRIDGE";
         case DESIGN_PATTERN_COMPOSITE: return "COMPOSITE";
         case DESIGN_PATTERN_DECORATOR: return "DECORATOR";
+        case DESIGN_PATTERN_FACADE: return "FACADE";
         default: return "design title not found";
     }
 }

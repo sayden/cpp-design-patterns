@@ -16,6 +16,7 @@
 #define DESIGN_PATTERN_BRIDGE 5
 #define DESIGN_PATTERN_COMPOSITE 6
 #define DESIGN_PATTERN_DECORATOR 7
+#define DESIGN_PATTERN_FACADE 8
 
 class DesignPatterns {
 public:

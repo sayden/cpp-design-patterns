@@ -23,6 +23,7 @@ int main() {
     printPattern(DESIGN_PATTERN_BRIDGE);
     printPattern(DESIGN_PATTERN_COMPOSITE);
     printPattern(DESIGN_PATTERN_DECORATOR);
+    printPattern(DESIGN_PATTERN_FACADE);
 
     return 0;
 }
