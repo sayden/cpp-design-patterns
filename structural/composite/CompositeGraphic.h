@@ -1,0 +1,14 @@
+//
+// Created by mariocaster on 2/27/16.
+//
+
+#ifndef CPPDESIGNPATTERNS_COMPOSITEGRAPHIC_H
+#define CPPDESIGNPATTERNS_COMPOSITEGRAPHIC_H
+
+
+class CompositeGraphic {
+
+};
+
+
+#endif //CPPDESIGNPATTERNS_COMPOSITEGRAPHIC_H

@@ -1,0 +1,8 @@
+//
+// Created by mariocaster on 2/27/16.
+//
+
+#ifndef CPPDESIGNPATTERNS_GRAPHIC_H
+#define CPPDESIGNPATTERNS_GRAPHIC_H
+
+#endif //CPPDESIGNPATTERNS_GRAPHIC_H

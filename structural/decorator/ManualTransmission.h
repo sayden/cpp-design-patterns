@@ -1,0 +1,14 @@
+//
+// Created by mariocaster on 2/27/16.
+//
+
+#ifndef CPPDESIGNPATTERNS_MANUALTRANSMISSION_H
+#define CPPDESIGNPATTERNS_MANUALTRANSMISSION_H
+
+
+class ManualTransmission {
+
+};
+
+
+#endif //CPPDESIGNPATTERNS_MANUALTRANSMISSION_H

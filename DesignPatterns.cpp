@@ -16,6 +16,9 @@
 #include "structural/bridge/CircleShape.cpp"
 #include "structural/bridge/DrawingAPI1.cpp"
 #include "structural/bridge/DrawingAPI2.cpp"
+#include "structural/composite/Ellipse.h"
+#include "structural/composite/CompositeGraphic.h"
+#include "structural/decorator/ClassDecoratorExample.h"
 
 Singleton::StringSingleton *singleton = 0;
 
@@ -99,9 +102,40 @@ void DesignPatterns::execute(int pattern) {
             circle2.resizeByPercentage(2.5);
             circle1.draw();
             circle2.draw();
-            
+
             break;
         }
+        case DESIGN_PATTERN_COMPOSITE: {
+            //Initialize four ellipses
+            const std::unique_ptr<Ellipse> ellipse1(new Ellipse());
+            const std::unique_ptr<Ellipse> ellipse2(new Ellipse());
+            const std::unique_ptr<Ellipse> ellipse3(new Ellipse());
+            const std::unique_ptr<Ellipse> ellipse4(new Ellipse());
+
+            //Initialize three composite graphics
+            std::unique_ptr<CompositeGraphic> graphic(new CompositeGraphic());
+            std::unique_ptr<CompositeGraphic> graphic1(new CompositeGraphic());
+            std::unique_ptr<CompositeGraphic> graphic2(new CompositeGraphic());
+
+            //Compose the graphics
+            graphic1->add(ellipse1.get());
+            graphic1->add(ellipse2.get());
+            graphic1->add(ellipse3.get());
+
+            graphic2->add(ellipse4.get());
+
+            graphic->add(graphic1.get());
+            graphic->add(graphic2.get());
+
+            // Prints the complete graphic (four times the string "Ellipse")
+            graphic->print();
+
+            break;
+        }
+        case DESIGN_PATTERN_DECORATOR:
+            ClassDecoratorExample b;
+            b.execute();
+            break;
         default: std::cout << "Pattern not recognized" << std::endl;
     }
 }
@@ -114,6 +148,8 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_SINGLETON: return "SINGLETON";
         case DESIGN_PATTERN_ADAPTER: return "ADAPTER";
         case DESIGN_PATTERN_BRIDGE: return "BRIDGE";
+        case DESIGN_PATTERN_COMPOSITE: return "COMPOSITE";
+        case DESIGN_PATTERN_DECORATOR: return "DECORATOR";
         default: return "design title not found";
     }
 }
