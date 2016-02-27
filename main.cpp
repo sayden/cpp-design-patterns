@@ -18,5 +18,10 @@ int main() {
     cout << "\n-----> '" << DesignPatterns::getDesignPatternName(pattern) << "'" << endl;
     DesignPatterns::execute(pattern);
 
+    //PROTOTYPE
+    pattern = DESIGN_PATTERN_PROTOTYPE;
+    cout << "\n-----> '" << DesignPatterns::getDesignPatternName(pattern) << "'" << endl;
+    DesignPatterns::execute(pattern);
+
     return 0;
 }

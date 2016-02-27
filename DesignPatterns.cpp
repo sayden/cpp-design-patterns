@@ -7,6 +7,7 @@
 #include "creational/builder/HawaiianPizzaBuilder.h"
 #include "creational/builder/SpicyPizzaBuilder.h"
 #include "creational/factory/ComputerFactory.h"
+#include "creational/prototype/RecordFactory.h"
 
 void DesignPatterns::execute(int pattern) {
     switch (pattern) {
@@ -30,6 +31,16 @@ void DesignPatterns::execute(int pattern) {
             std::cout << "Second computer is " << l->getName() << std::endl;
             break;
         }
+        case DESIGN_PATTERN_PROTOTYPE:{
+            PrototypeRecord::RecordFactory rf;
+            auto r = rf.createRecord(PrototypeRecord::CAR);
+            r->print();
+
+            r = rf.createRecord(PrototypeRecord::BIKE);
+            r->print();
+
+            break;
+        }
         default: std::cout << "Pattern not recognized" << std::endl;
     }
 }
@@ -38,6 +49,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
     switch (pattern) {
         case DESIGN_PATTERN_BUILDER: return "BUILDER";
         case DESIGN_PATTERN_FACTORY: return "FACTORY";
-        default: return "design pattern not recognized";
+        case DESIGN_PATTERN_PROTOTYPE: return "PROTOTYPE";
+        default: return "design title not found";
     }
 }
