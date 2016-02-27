@@ -4,29 +4,34 @@ using namespace std;
 
 #include "DesignPatterns.h"
 
+void printPattern(int pattern){
+    cout << "\n-----> '" << DesignPatterns::getDesignPatternName(pattern) << "'" << endl;
+    DesignPatterns::execute(pattern);
+}
+
 int main() {
-    int pattern = DESIGN_PATTERN_BUILDER;
     cout << "\nDesign patterns tutorials" << endl;
     cout << "Selecting pattern..." << endl;
 
     //BUILDER
-    cout << "\n-----> '" << DesignPatterns::getDesignPatternName(pattern) << "'" << endl;
-    DesignPatterns::execute(pattern);
+    int pattern = DESIGN_PATTERN_BUILDER;
+    printPattern(pattern);
 
     //FACTORY
     pattern = DESIGN_PATTERN_FACTORY;
-    cout << "\n-----> '" << DesignPatterns::getDesignPatternName(pattern) << "'" << endl;
-    DesignPatterns::execute(pattern);
+    printPattern(pattern);
 
     //PROTOTYPE
     pattern = DESIGN_PATTERN_PROTOTYPE;
-    cout << "\n-----> '" << DesignPatterns::getDesignPatternName(pattern) << "'" << endl;
-    DesignPatterns::execute(pattern);
+    printPattern(pattern);
 
     //SINGLETON
     pattern = DESIGN_PATTERN_ADAPTER;
-    cout << "\n-----> '" << DesignPatterns::getDesignPatternName(pattern) << "'" << endl;
-    DesignPatterns::execute(pattern);
+    printPattern(pattern);
+
+    //BRIDGE
+    pattern = DESIGN_PATTERN_BRIDGE;
+    printPattern(pattern);
 
     return 0;
 }

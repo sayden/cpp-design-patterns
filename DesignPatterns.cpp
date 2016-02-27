@@ -13,8 +13,15 @@
 #include "structural/adapter/MuslimFemale.cpp"
 #include "structural/adapter/MuslimRitual.cpp"
 #include "structural/adapter/MuslimAdapter.cpp"
+#include "structural/bridge/CircleShape.cpp"
+#include "structural/bridge/DrawingAPI1.cpp"
+#include "structural/bridge/DrawingAPI2.cpp"
 
 Singleton::StringSingleton *singleton = 0;
+
+class CircleShape;
+
+class DrawingAPI1;
 
 void singletonTest(){
     std::cout << "Current var is " << Singleton::StringSingleton::instance()->GetString()
@@ -82,6 +89,16 @@ void DesignPatterns::execute(int pattern) {
             delete adaptedHindu;
             delete hinduGirl;
             delete muslimGirl;
+
+            break;
+        }
+        case DESIGN_PATTERN_BRIDGE:{
+            CircleShape circle1(1,2,3,new DrawingAPI1());
+            CircleShape circle2(5,7,11,new DrawingAPI2());
+            circle1.resizeByPercentage(2.5);
+            circle2.resizeByPercentage(2.5);
+            circle1.draw();
+            circle2.draw();
             
             break;
         }
@@ -96,6 +113,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_PROTOTYPE: return "PROTOTYPE";
         case DESIGN_PATTERN_SINGLETON: return "SINGLETON";
         case DESIGN_PATTERN_ADAPTER: return "ADAPTER";
+        case DESIGN_PATTERN_BRIDGE: return "BRIDGE";
         default: return "design title not found";
     }
 }

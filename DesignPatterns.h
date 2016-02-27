@@ -13,6 +13,7 @@
 #define DESIGN_PATTERN_PROTOTYPE 2
 #define DESIGN_PATTERN_SINGLETON 3
 #define DESIGN_PATTERN_ADAPTER 4
+#define DESIGN_PATTERN_BRIDGE 5
 
 class DesignPatterns {
 public:
