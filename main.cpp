@@ -13,25 +13,16 @@ int main() {
     cout << "\nDesign patterns tutorials" << endl;
     cout << "Selecting pattern..." << endl;
 
-    //BUILDER
-    int pattern = DESIGN_PATTERN_BUILDER;
-    printPattern(pattern);
+    //CREATIONAL
+    printPattern(DESIGN_PATTERN_BUILDER);
+    printPattern(DESIGN_PATTERN_FACTORY);
 
-    //FACTORY
-    pattern = DESIGN_PATTERN_FACTORY;
-    printPattern(pattern);
-
-    //PROTOTYPE
-    pattern = DESIGN_PATTERN_PROTOTYPE;
-    printPattern(pattern);
-
-    //SINGLETON
-    pattern = DESIGN_PATTERN_ADAPTER;
-    printPattern(pattern);
-
-    //BRIDGE
-    pattern = DESIGN_PATTERN_BRIDGE;
-    printPattern(pattern);
+    //STRUCTURAL
+    printPattern(DESIGN_PATTERN_PROTOTYPE);
+    printPattern(DESIGN_PATTERN_ADAPTER);
+    printPattern(DESIGN_PATTERN_BRIDGE);
+    printPattern(DESIGN_PATTERN_COMPOSITE);
+    printPattern(DESIGN_PATTERN_DECORATOR);
 
     return 0;
 }

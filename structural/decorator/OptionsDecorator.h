@@ -6,8 +6,12 @@
 #define CPPDESIGNPATTERNS_OPTIONSDECORATOR_H
 
 
-class OptionsDecorator {
+#include "Car.h"
 
+class OptionsDecorator : public Car {
+public:
+    virtual std::string getDescription() = 0;
+    virtual ~OptionsDecorator();
 };
 
 

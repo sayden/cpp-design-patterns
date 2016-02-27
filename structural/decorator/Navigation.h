@@ -6,8 +6,18 @@
 #define CPPDESIGNPATTERNS_NAVIGATION_H
 
 
-class Navigation {
+#include "Car.h"
+#include "OptionsDecorator.h"
+#include <iostream>
 
+class Navigation : public OptionsDecorator {
+public:
+    Navigation(Car *b);
+    std::string getDescription();
+    double getCost();
+    ~Navigation();
+private:
+    Car *_b;
 };
 
 

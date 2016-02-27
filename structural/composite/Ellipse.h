@@ -6,8 +6,10 @@
 #define CPPDESIGNPATTERNS_ELLIPSE_H
 
 
-class Ellipse {
+#include "Graphic.h"
 
+class Ellipse : public Graphic {
+    void print() const;
 };
 
 

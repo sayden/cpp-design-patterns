@@ -6,8 +6,13 @@
 #define CPPDESIGNPATTERNS_CARMODEL1_H
 
 
-class CarModel1 {
+#include "Car.h"
 
+class CarModel1 : public Car{
+public:
+    CarModel1();
+    virtual double getCost();
+    ~CarModel1();
 };
 
 

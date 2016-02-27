@@ -6,8 +6,17 @@
 #define CPPDESIGNPATTERNS_MANUALTRANSMISSION_H
 
 
-class ManualTransmission {
+#include "Car.h"
+#include "OptionsDecorator.h"
 
+class ManualTransmission: public OptionsDecorator {
+private:
+    Car *_b;
+public:
+    ManualTransmission(Car *b);
+    std::string getDescription();
+    double getCost();
+    ~ManualTransmission();
 };
 
 

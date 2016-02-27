@@ -7,7 +7,8 @@
 
 
 class ClassDecoratorExample {
-
+public:
+    void execute();
 };
 
 
