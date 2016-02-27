@@ -8,6 +8,17 @@
 #include "creational/builder/SpicyPizzaBuilder.h"
 #include "creational/factory/ComputerFactory.h"
 #include "creational/prototype/RecordFactory.h"
+#include "creational/singleton/StringSingleton.h"
+
+Singleton::StringSingleton *singleton = 0;
+
+void singletonTest(){
+    std::cout << "Current var is " << Singleton::StringSingleton::instance()->GetString()
+    << ", changing var to Sommerset" << std::endl;
+
+    std::string newVal = "Sommerset";
+    Singleton::StringSingleton::instance()->SetString(newVal);
+}
 
 void DesignPatterns::execute(int pattern) {
     switch (pattern) {
@@ -41,6 +52,21 @@ void DesignPatterns::execute(int pattern) {
 
             break;
         }
+        case DESIGN_PATTERN_SINGLETON:{
+            if (!singleton){
+                singleton = new Singleton::StringSingleton;
+            }
+
+            std::string val = "Mills";
+            Singleton::StringSingleton::instance()->SetString(val);
+
+            singletonTest();
+            val = Singleton::StringSingleton::instance()->GetString();
+
+            std::cout << "Now the var is " << val << std::endl;
+
+            break;
+        }
         default: std::cout << "Pattern not recognized" << std::endl;
     }
 }
@@ -50,6 +76,8 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_BUILDER: return "BUILDER";
         case DESIGN_PATTERN_FACTORY: return "FACTORY";
         case DESIGN_PATTERN_PROTOTYPE: return "PROTOTYPE";
+        case DESIGN_PATTERN_SINGLETON: return "SINGLETON";
         default: return "design title not found";
     }
 }
+

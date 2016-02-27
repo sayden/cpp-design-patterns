@@ -23,5 +23,10 @@ int main() {
     cout << "\n-----> '" << DesignPatterns::getDesignPatternName(pattern) << "'" << endl;
     DesignPatterns::execute(pattern);
 
+    //SINGLETON
+    pattern = DESIGN_PATTERN_SINGLETON;
+    cout << "\n-----> '" << DesignPatterns::getDesignPatternName(pattern) << "'" << endl;
+    DesignPatterns::execute(pattern);
+
     return 0;
 }

@@ -11,6 +11,7 @@
 #define DESIGN_PATTERN_BUILDER 0
 #define DESIGN_PATTERN_FACTORY 1
 #define DESIGN_PATTERN_PROTOTYPE 2
+#define DESIGN_PATTERN_SINGLETON 3
 
 class DesignPatterns {
 public:
