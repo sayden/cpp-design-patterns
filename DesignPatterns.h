@@ -12,6 +12,7 @@
 #define DESIGN_PATTERN_FACTORY 1
 #define DESIGN_PATTERN_PROTOTYPE 2
 #define DESIGN_PATTERN_SINGLETON 3
+#define DESIGN_PATTERN_ADAPTER 4
 
 class DesignPatterns {
 public:

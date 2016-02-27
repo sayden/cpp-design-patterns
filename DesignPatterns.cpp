@@ -9,6 +9,10 @@
 #include "creational/factory/ComputerFactory.h"
 #include "creational/prototype/RecordFactory.h"
 #include "creational/singleton/StringSingleton.h"
+#include "structural/adapter/HinduFemale.cpp"
+#include "structural/adapter/MuslimFemale.cpp"
+#include "structural/adapter/MuslimRitual.cpp"
+#include "structural/adapter/MuslimAdapter.cpp"
 
 Singleton::StringSingleton *singleton = 0;
 
@@ -67,6 +71,20 @@ void DesignPatterns::execute(int pattern) {
 
             break;
         }
+        case DESIGN_PATTERN_ADAPTER:{
+            HinduFemale* hinduGirl = new HinduFemale;
+            MuslimFemale* muslimGirl = new MuslimFemale;
+            MuslimRitual muslimRitual;
+            MuslimAdapter* adaptedHindu = new MuslimAdapter(hinduGirl);
+            muslimRitual.carryOutRitual(muslimGirl);
+            muslimRitual.carryOutRitual(adaptedHindu);
+
+            delete adaptedHindu;
+            delete hinduGirl;
+            delete muslimGirl;
+            
+            break;
+        }
         default: std::cout << "Pattern not recognized" << std::endl;
     }
 }
@@ -77,6 +95,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_FACTORY: return "FACTORY";
         case DESIGN_PATTERN_PROTOTYPE: return "PROTOTYPE";
         case DESIGN_PATTERN_SINGLETON: return "SINGLETON";
+        case DESIGN_PATTERN_ADAPTER: return "ADAPTER";
         default: return "design title not found";
     }
 }

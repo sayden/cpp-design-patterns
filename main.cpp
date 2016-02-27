@@ -24,7 +24,7 @@ int main() {
     DesignPatterns::execute(pattern);
 
     //SINGLETON
-    pattern = DESIGN_PATTERN_SINGLETON;
+    pattern = DESIGN_PATTERN_ADAPTER;
     cout << "\n-----> '" << DesignPatterns::getDesignPatternName(pattern) << "'" << endl;
     DesignPatterns::execute(pattern);
 
