@@ -24,6 +24,7 @@ int main() {
     printPattern(DESIGN_PATTERN_COMPOSITE);
     printPattern(DESIGN_PATTERN_DECORATOR);
     printPattern(DESIGN_PATTERN_FACADE);
+    printPattern(DESIGN_PATTERN_FLYWEIGHT);
 
     return 0;
 }

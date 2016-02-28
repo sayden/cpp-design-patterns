@@ -20,6 +20,8 @@
 #include "structural/composite/CompositeGraphic.h"
 #include "structural/decorator/ClassDecoratorExample.h"
 #include "structural/facade/HouseFacade.cpp"
+#include "structural/flyweight/FlyweightCharacter.h"
+#include "structural/flyweight/FlyweightCharacterAbstractBuilder.h"
 
 Singleton::StringSingleton *singleton = 0;
 
@@ -139,6 +141,24 @@ void DesignPatterns::execute(int pattern) {
             hf.comeHome();
             break;
         }
+        case DESIGN_PATTERN_FLYWEIGHT:{
+            std::vector<FlyweightCharacter> chars;
+            FlyweightCharacterAbstractBuilder::setFontsAndNames();
+            unsigned short limit = 3; //NUMBER_OF_SAME_TYPE_CHARS
+
+            for(unsigned short i = 0; i< limit; i++){
+                chars.push_back(FlyweightCharacterAbstractBuilder::createFlyweightCharacter(0, 0, 1));
+                chars.push_back(FlyweightCharacterAbstractBuilder::createFlyweightCharacter(1, 1, i + 1 * limit));
+                chars.push_back(FlyweightCharacterAbstractBuilder::createFlyweightCharacter(2, 2, i + 2 * limit));
+            }
+
+            for (unsigned short i = 0; i < chars.size(); i++) {
+                chars[i].print();
+            }
+
+            delete(&chars);
+            delete(&limit);
+        }
 
         default: std::cout << "Pattern not recognized" << std::endl;
     }
@@ -155,6 +175,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_COMPOSITE: return "COMPOSITE";
         case DESIGN_PATTERN_DECORATOR: return "DECORATOR";
         case DESIGN_PATTERN_FACADE: return "FACADE";
+        case DESIGN_PATTERN_FLYWEIGHT: return "FLYWEIGHT";
         default: return "design title not found";
     }
 }

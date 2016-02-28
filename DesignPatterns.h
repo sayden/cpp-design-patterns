@@ -17,6 +17,7 @@
 #define DESIGN_PATTERN_COMPOSITE 6
 #define DESIGN_PATTERN_DECORATOR 7
 #define DESIGN_PATTERN_FACADE 8
+#define DESIGN_PATTERN_FLYWEIGHT 9
 
 class DesignPatterns {
 public:
