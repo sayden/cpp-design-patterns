@@ -29,6 +29,7 @@ int main() {
 
     //BEHAVIORAL
     printPattern(DESIGN_PATTERN_CHAIN_OF_RESPONSABILITY);
+    printPattern(DESIGN_PATTERN_COMMAND);
 
     return 0;
 }

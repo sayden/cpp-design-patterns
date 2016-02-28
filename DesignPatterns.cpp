@@ -26,6 +26,10 @@
 #include "behavioral/chain_of_responsability/Handler1.cpp"
 #include "behavioral/chain_of_responsability/Handler2.cpp"
 #include "behavioral/chain_of_responsability/Handler3.cpp"
+#include "behavioral/command/Light.cpp"
+#include "behavioral/command/FlipUpCommand.cpp"
+#include "behavioral/command/FlipDownCommand.cpp"
+#include "behavioral/command/Switch.cpp"
 
 Singleton::StringSingleton *singleton = 0;
 
@@ -186,6 +190,16 @@ void DesignPatterns::execute(int pattern) {
             }
             break;
         };
+        case DESIGN_PATTERN_COMMAND:{
+            Light lamp;
+            FlipUpCommand switchUp(lamp);
+            FlipDownCommand switchDown(lamp);
+
+            Switch s(switchUp, switchDown);
+            s.flipUp();
+            s.flipDown();
+            break;
+        }
 
         default: std::cout << "Pattern not implemented yet" << std::endl;
     }
@@ -205,7 +219,8 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_FLYWEIGHT: return "FLYWEIGHT";
         case DESIGN_PATTERN_PROXY: return "PROXY";
         case DESIGN_PATTERN_CHAIN_OF_RESPONSABILITY: return "CHAIN OF RESPONSABILITY";
-        default: return "design title not found";
+        case DESIGN_PATTERN_COMMAND: return "COMMAND";
+        default: return "design pattern title not found";
     }
 }
 
