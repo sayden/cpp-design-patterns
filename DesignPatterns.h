@@ -18,6 +18,7 @@
 #define DESIGN_PATTERN_DECORATOR 7
 #define DESIGN_PATTERN_FACADE 8
 #define DESIGN_PATTERN_FLYWEIGHT 9
+#define DESIGN_PATTERN_PROXY 10
 
 class DesignPatterns {
 public:

@@ -22,6 +22,7 @@
 #include "structural/facade/HouseFacade.cpp"
 #include "structural/flyweight/FlyweightCharacter.h"
 #include "structural/flyweight/FlyweightCharacterAbstractBuilder.h"
+#include "structural/proxy/Image.h"
 
 Singleton::StringSingleton *singleton = 0;
 
@@ -156,11 +157,19 @@ void DesignPatterns::execute(int pattern) {
                 chars[i].print();
             }
 
-            delete(&chars);
-            delete(&limit);
+            break;
+        }
+        case DESIGN_PATTERN_PROXY:{
+            Image images[5];
+
+            for (int i = 1; i<=5; i++){
+                std::cout << "Exit[0], Image[1-5]: " << i;
+                images[i -1].draw();
+            }
+            break;
         }
 
-        default: std::cout << "Pattern not recognized" << std::endl;
+        default: std::cout << "Pattern not implemented yet" << std::endl;
     }
 }
 
@@ -176,6 +185,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_DECORATOR: return "DECORATOR";
         case DESIGN_PATTERN_FACADE: return "FACADE";
         case DESIGN_PATTERN_FLYWEIGHT: return "FLYWEIGHT";
+        case DESIGN_PATTERN_PROXY: return "PROXY";
         default: return "design title not found";
     }
 }
