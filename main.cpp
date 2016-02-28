@@ -27,5 +27,8 @@ int main() {
     printPattern(DESIGN_PATTERN_FLYWEIGHT);
     printPattern(DESIGN_PATTERN_PROXY);
 
+    //BEHAVIORAL
+    printPattern(DESIGN_PATTERN_CHAIN_OF_RESPONSABILITY);
+
     return 0;
 }

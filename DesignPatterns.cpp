@@ -23,6 +23,9 @@
 #include "structural/flyweight/FlyweightCharacter.h"
 #include "structural/flyweight/FlyweightCharacterAbstractBuilder.h"
 #include "structural/proxy/Image.h"
+#include "behavioral/chain_of_responsability/Handler1.cpp"
+#include "behavioral/chain_of_responsability/Handler2.cpp"
+#include "behavioral/chain_of_responsability/Handler3.cpp"
 
 Singleton::StringSingleton *singleton = 0;
 
@@ -168,6 +171,21 @@ void DesignPatterns::execute(int pattern) {
             }
             break;
         }
+        case DESIGN_PATTERN_CHAIN_OF_RESPONSABILITY:{
+            srand(time(0));
+            Handler1 root;
+            Handler2 two;
+            Handler3 thr;
+            root.add(&two);
+            root.add(&thr);
+            thr.setNext(&root);
+            for (int i = 1; i < 10; i++)
+            {
+                root.handle(i);
+                std::cout << '\n';
+            }
+            break;
+        };
 
         default: std::cout << "Pattern not implemented yet" << std::endl;
     }
@@ -186,6 +204,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_FACADE: return "FACADE";
         case DESIGN_PATTERN_FLYWEIGHT: return "FLYWEIGHT";
         case DESIGN_PATTERN_PROXY: return "PROXY";
+        case DESIGN_PATTERN_CHAIN_OF_RESPONSABILITY: return "CHAIN OF RESPONSABILITY";
         default: return "design title not found";
     }
 }
