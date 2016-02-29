@@ -30,6 +30,10 @@
 #include "behavioral/command/FlipUpCommand.cpp"
 #include "behavioral/command/FlipDownCommand.cpp"
 #include "behavioral/command/Switch.cpp"
+#include "behavioral/strategy/ConcreteStrategyA.cpp"
+#include "behavioral/strategy/ConcreteStrategyB.cpp"
+#include "behavioral/strategy/Context.cpp"
+
 
 Singleton::StringSingleton *singleton = 0;
 
@@ -200,6 +204,22 @@ void DesignPatterns::execute(int pattern) {
             s.flipDown();
             break;
         }
+        case DESIGN_PATTERN_STRATEGY:{
+            ConcreteStrategyA sA;
+            ConcreteStrategyB sB;
+
+            Context contextA(&sA);
+            Context contextB(&sB);
+
+            contextA.execute();
+            contextB.execute();
+
+            contextA.setStrategy(&sB);
+            contextA.execute();
+            contextB.setStrategy(&sA);
+            contextB.execute();
+            break;
+        }
 
         default: std::cout << "Pattern not implemented yet" << std::endl;
     }
@@ -220,6 +240,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_PROXY: return "PROXY";
         case DESIGN_PATTERN_CHAIN_OF_RESPONSABILITY: return "CHAIN OF RESPONSABILITY";
         case DESIGN_PATTERN_COMMAND: return "COMMAND";
+        case DESIGN_PATTERN_STRATEGY: return "STRATEGY";
         default: return "design pattern title not found";
     }
 }
