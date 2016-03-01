@@ -5,7 +5,7 @@
 #include <iostream>
 #include "Base.cpp"
 
-class Handler1: public Base{
+class Handler1: public Base {
 public:
     void handle(int i){
         if (std::rand() % 3){

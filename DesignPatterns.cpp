@@ -33,6 +33,9 @@
 #include "behavioral/strategy/ConcreteStrategyA.cpp"
 #include "behavioral/strategy/ConcreteStrategyB.cpp"
 #include "behavioral/strategy/Context.cpp"
+#include "behavioral/template/TemplateBase.cpp"
+#include "behavioral/template/One.cpp"
+#include "behavioral/template/Two.cpp"
 
 
 Singleton::StringSingleton *singleton = 0;
@@ -220,8 +223,19 @@ void DesignPatterns::execute(int pattern) {
             contextB.execute();
             break;
         }
-
-        default: std::cout << "Pattern not implemented yet" << std::endl;
+        case DESIGN_PATTERN_TEMPLATE:{
+            One *one = new One();
+            Two *two = new Two();
+            TemplateBase *array[] = { one, two };
+            for (int i = 0; i < 2; i++) {
+                array[i]->execute();
+                std::cout << '\n';
+            }
+            break;
+        }
+        default: {
+            std::cout << "Pattern not implemented yet" << std::endl;
+        }
     }
 }
 
@@ -241,6 +255,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_CHAIN_OF_RESPONSABILITY: return "CHAIN OF RESPONSABILITY";
         case DESIGN_PATTERN_COMMAND: return "COMMAND";
         case DESIGN_PATTERN_STRATEGY: return "STRATEGY";
+        case DESIGN_PATTERN_TEMPLATE: return "TEMPLATE";
         default: return "design pattern title not found";
     }
 }

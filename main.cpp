@@ -31,6 +31,7 @@ int main() {
     printPattern(DESIGN_PATTERN_CHAIN_OF_RESPONSABILITY);
     printPattern(DESIGN_PATTERN_COMMAND);
     printPattern(DESIGN_PATTERN_STRATEGY);
+    printPattern(DESIGN_PATTERN_TEMPLATE);
 
     return 0;
 }
