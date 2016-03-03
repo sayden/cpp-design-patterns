@@ -36,6 +36,8 @@
 #include "behavioral/template/TemplateBase.cpp"
 #include "behavioral/template/One.cpp"
 #include "behavioral/template/Two.cpp"
+#include "behavioral/observer/DivObserver.cpp"
+#include "behavioral/observer/ModObserver.cpp"
 
 
 Singleton::StringSingleton *singleton = 0;
@@ -233,6 +235,14 @@ void DesignPatterns::execute(int pattern) {
             }
             break;
         }
+        case DESIGN_PATTERN_OBSERVER:{
+            Subject subject;
+            DivObserver d1(&subject, 4);
+            DivObserver d2(&subject, 3);
+            ModObserver m1(&subject, 3);
+            subject.setVal(14);
+            break;
+        }
         default: {
             std::cout << "Pattern not implemented yet" << std::endl;
         }
@@ -256,6 +266,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_COMMAND: return "COMMAND";
         case DESIGN_PATTERN_STRATEGY: return "STRATEGY";
         case DESIGN_PATTERN_TEMPLATE: return "TEMPLATE";
+        case DESIGN_PATTERN_OBSERVER: return "OBSERVER";
         default: return "design pattern title not found";
     }
 }

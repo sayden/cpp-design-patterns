@@ -32,6 +32,7 @@ int main() {
     printPattern(DESIGN_PATTERN_COMMAND);
     printPattern(DESIGN_PATTERN_STRATEGY);
     printPattern(DESIGN_PATTERN_TEMPLATE);
+    printPattern(DESIGN_PATTERN_OBSERVER);
 
     return 0;
 }
