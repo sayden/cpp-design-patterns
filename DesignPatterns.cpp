@@ -2,6 +2,7 @@
 // Created by mariocaster on 2/27/16.
 //
 
+#include <unistd.h>
 #include "DesignPatterns.h"
 #include "creational/builder/Cook.h"
 #include "creational/builder/HawaiianPizzaBuilder.h"
@@ -38,6 +39,7 @@
 #include "behavioral/template/Two.cpp"
 #include "behavioral/observer/DivObserver.cpp"
 #include "behavioral/observer/ModObserver.cpp"
+#include "behavioral/state/TLNetTraffic.h"
 
 
 Singleton::StringSingleton *singleton = 0;
@@ -243,6 +245,19 @@ void DesignPatterns::execute(int pattern) {
             subject.setVal(14);
             break;
         }
+        case DESIGN_PATTERN_STATE:{
+            TLNetTraffic netTraffic;
+
+            int i=0;
+
+            for(int count = 0; count<10; count++) {
+                if (i%3==0)
+                    printf("---------\nSession %d\n---------\n", ((i+1)/3)+1 );
+                netTraffic.Handle();
+                i++;
+            }
+            break;
+        }
         default: {
             std::cout << "Pattern not implemented yet" << std::endl;
         }
@@ -267,6 +282,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_STRATEGY: return "STRATEGY";
         case DESIGN_PATTERN_TEMPLATE: return "TEMPLATE";
         case DESIGN_PATTERN_OBSERVER: return "OBSERVER";
+        case DESIGN_PATTERN_STATE: return "STATE";
         default: return "design pattern title not found";
     }
 }
