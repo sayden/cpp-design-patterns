@@ -34,6 +34,7 @@ int main() {
     printPattern(DESIGN_PATTERN_TEMPLATE);
     printPattern(DESIGN_PATTERN_OBSERVER);
     printPattern(DESIGN_PATTERN_STATE);
+    printPattern(DESIGN_PATTERN_INTERPRETER);
 
     return 0;
 }

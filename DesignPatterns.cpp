@@ -40,6 +40,7 @@
 #include "behavioral/observer/DivObserver.cpp"
 #include "behavioral/observer/ModObserver.cpp"
 #include "behavioral/state/TLNetTraffic.h"
+#include "behavioral/interpreter/RNInterpreter.h"
 
 
 Singleton::StringSingleton *singleton = 0;
@@ -255,8 +256,18 @@ void DesignPatterns::execute(int pattern) {
                     printf("---------\nSession %d\n---------\n", ((i+1)/3)+1 );
                 netTraffic.Handle();
                 i++;
+                break;
             }
-            break;
+            case DESIGN_PATTERN_INTERPRETER:{
+                RNInterpreter interpreter;
+                char input[20];
+                std::cout << "Enter Roman Numeral: ";
+                while (std::cin >> input){
+                    std::cout << "   interpretation is " << interpreter.interpret(input) << std::endl;
+                    std::cout << "Enter Roman Numeral: ";
+                }
+                break;
+            }
         }
         default: {
             std::cout << "Pattern not implemented yet" << std::endl;
@@ -283,6 +294,7 @@ std::string DesignPatterns::getDesignPatternName(int pattern) {
         case DESIGN_PATTERN_TEMPLATE: return "TEMPLATE";
         case DESIGN_PATTERN_OBSERVER: return "OBSERVER";
         case DESIGN_PATTERN_STATE: return "STATE";
+        case DESIGN_PATTERN_INTERPRETER: return "INTERPRETER";
         default: return "design pattern title not found";
     }
 }

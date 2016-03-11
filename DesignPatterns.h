@@ -6,7 +6,6 @@
 #define CPPDESIGNPATTERNS_DESIGNPATTERNS_H
 
 #include <string>
-#include "creational/builder/Pizza.h"
 
 #define DESIGN_PATTERN_BUILDER 0
 #define DESIGN_PATTERN_FACTORY 1
@@ -25,6 +24,7 @@
 #define DESIGN_PATTERN_TEMPLATE 14
 #define DESIGN_PATTERN_OBSERVER 15
 #define DESIGN_PATTERN_STATE 16
+#define DESIGN_PATTERN_INTERPRETER 17
 
 
 class DesignPatterns {
